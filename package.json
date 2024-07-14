@@ -4,6 +4,13 @@
   "version": "0.0.1",
   "description": "preview GitHub notifications with same page pop-overs",
   "author": "YuTengjing",
+  "manifest": {
+    "manifest_version": 3,
+    "host_permissions": [
+      "https://*/*"
+    ]
+  },
+  "packageManager": "pnpm@9.5.0",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
@@ -22,11 +29,5 @@
     "@types/react-dom": "18.2.18",
     "prettier": "3.2.4",
     "typescript": "5.3.3"
-  },
-  "manifest": {
-    "host_permissions": [
-      "https://*/*"
-    ]
-  },
-  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
+  }
 }
