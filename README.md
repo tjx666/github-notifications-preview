@@ -14,7 +14,7 @@ read more from [plasmo official documentation](https://docs.plasmo.com/framework
 
 ## TODOS
 
-- [ ] [feat: mark all as read](https://github.com/tanmayrajani/notifications-preview-github/issues/22)
+- [x] [feat: mark all as read](https://github.com/tanmayrajani/notifications-preview-github/issues/22)
 - [ ] can't open notifications page when popover open
 - [ ] [feat: close popup when mouseLeave](https://github.com/tanmayrajani/notifications-preview-github/pull/125)
 - [ ] [fix: shows the count of notifications doesn't work](https://github.com/tanmayrajani/notifications-preview-github/issues/146)
