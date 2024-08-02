@@ -77,6 +77,13 @@ function isOpen(element?: HTMLElement) {
   return elementExists(".NPG-container[open], .NPG-loading", element)
 }
 
+function toggleNotificationsIndicator(show: boolean) {
+  $("#AppHeader-notifications-button > svg").style.setProperty(
+    "--notifications-icon-indicator-display",
+    show ? "block" : "none"
+  )
+}
+
 async function updateUnreadCount() {
   const latestStatusElement = $(
     ".notification-indicator .mail-status",
@@ -87,6 +94,7 @@ async function updateUnreadCount() {
     await notifications.dom
   ).textContent
   const rghCount = getRefinedGitHubUnreadCount()
+  toggleNotificationsIndicator(Number(latestCount) + rghCount > 0)
 
   for (const statusElement of $$(".notification-indicator .mail-status")) {
     if (options.previewCount && statusElement.textContent !== latestCount) {
