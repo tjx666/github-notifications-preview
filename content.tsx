@@ -4,7 +4,6 @@ import delegate from "delegate-it"
 import React, { h } from "dom-chef"
 import doma from "doma"
 import elementReady from "element-ready"
-import Checklist from "octicons-plain-react/components/Checklist"
 import type { PlasmoCSConfig } from "plasmo"
 import pushForm, { setFetch } from "push-form"
 import { $, $$, elementExists } from "select-dom"
@@ -78,10 +77,14 @@ function isOpen(element?: HTMLElement) {
 }
 
 function toggleNotificationsIndicator(show: boolean) {
-  $("#AppHeader-notifications-button > svg").style.setProperty(
+  $("#AppHeader-notifications-button").style.setProperty(
     "--notifications-icon-indicator-display",
     show ? "block" : "none"
   )
+}
+
+function hidePreview() {
+  $(".NPG-container summary").click()
 }
 
 async function updateUnreadCount() {
@@ -236,7 +239,7 @@ async function openDropdown({ currentTarget: indicator }) {
           if (
             $$(".js-notifications-list-item", notificationGroup).length === 0
           ) {
-            notificationGroup.remove()
+            notificationGroup?.remove()
           }
         } else {
           form.classList.add("mark-all-as-read-confirmed")
@@ -260,6 +263,8 @@ async function openDropdown({ currentTarget: indicator }) {
           0
         ) {
           dropdownHeader.remove()
+          toggleNotificationsIndicator(false)
+          hidePreview()
         }
       },
       {
